@@ -6,23 +6,14 @@ import java.util.ArrayList;
 /**
  * @author Eric Shen 
  */
-public class Sliding_Window
-{   
-    public static void main(String[] args) {
-        SlidingWindow window = new SlidingWindow(30);
-        //window.compress();
-        window.decompress();
-    }
-}
-
-class SlidingWindow{
+public class Sliding_Window{
     FileReader inFile = null;
     FileWriter outFile = null;
     int windowSize;
     ArrayList<Character> input;
     ArrayList<Character> window;
     
-    public SlidingWindow(int windowSize) {
+    public Sliding_Window(int windowSize) {
     	this.windowSize = windowSize;
         input = new ArrayList<Character>();
         window = new ArrayList<Character>();
