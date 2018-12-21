@@ -11,11 +11,13 @@ public class Sliding_Window{
     FileWriter outFile = null;
     int windowSize;
     ArrayList<Character> input;
+    ArrayList<Character> output;
     ArrayList<Character> window;
     
     public Sliding_Window(int windowSize) {
     	this.windowSize = windowSize;
         input = new ArrayList<Character>();
+        output = new ArrayList<Character>();
         window = new ArrayList<Character>();
     }
     
@@ -53,7 +55,7 @@ public class Sliding_Window{
     }
     
     public void decompress(){
-        ArrayList<Character> output = getOutput();
+        getOutput();
         try{
             outFile = new FileWriter("Decompression Output.txt");
             for(int i = 0; i < output.size(); i++){
@@ -73,8 +75,9 @@ public class Sliding_Window{
         return windowSize;
     }
     
-    private ArrayList<Character> getOutput(){
-        ArrayList<Character> output = new ArrayList<Character>();
+    private void getOutput(){
+        output.clear();
+        window.clear();
         try{
             inFile = new FileReader(getFile());
             int count = 0;
@@ -107,7 +110,6 @@ public class Sliding_Window{
         catch (IOException e) {
                 System.out.println(e.getMessage());
         }
-        return output;
     }
     
     //returns a "pair" consisting of an int array where element 0 is the size of the match and element 1
